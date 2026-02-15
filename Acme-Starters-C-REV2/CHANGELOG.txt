@@ -11,6 +11,7 @@
 ** Year 2026 ******************************************************************
 
 - 26.1.0	Upgraded to the new version of the Acme Framework.  
+- 26.2.0	Upgraded to the new version of the Acme Framework.  
 
 ** Year 2025 ******************************************************************
 
