@@ -10,5 +10,4 @@
 
 master.welcome.title = Welcome!
 master.welcome.text = \
-	Hello World! Never before has it been easier to get your \
-	project up and running!
+	Welcome to Acme Starters C — a starter project to help you learn and test Software Engineering concepts quickly and safely.
