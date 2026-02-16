@@ -29,7 +29,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = { @Index(columnList = "draftMode, startMoment"), @Index(columnList = "auditor_id, id") })
 public class AuditReport extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
