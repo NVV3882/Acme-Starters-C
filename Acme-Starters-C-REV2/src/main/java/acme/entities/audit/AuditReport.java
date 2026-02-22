@@ -1,3 +1,4 @@
+
 package acme.entities.audit;
 
 import java.util.Date;
@@ -6,10 +7,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -21,8 +20,6 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidUrl;
-import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,58 +30,57 @@ public class AuditReport extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long		serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString
+	//@ValidTicker
 	@Column(unique = true)
-	private String ticker;
+	private String					ticker;
 
 	@Mandatory
-	@ValidString
+	//@ValidHeader
 	@Column
-	private String name;
+	private String					name;
 
 	@Mandatory
-	@ValidString
+	//@ValidText
 	@Column
-	private String description;
+	private String					description;
 
 	@Mandatory
-	@ValidMoment
+	@ValidMoment(constraint = ValidMoment.Constraint.ENFORCE_FUTURE)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date startMoment;
+	private Date					startMoment;
 
 	@Mandatory
-	@ValidMoment
+	@ValidMoment(constraint = ValidMoment.Constraint.ENFORCE_FUTURE)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date endMoment;
+	private Date					endMoment;
 
 	@Optional
-	@ValidUrl
+	//@ValidUrl
 	@Column
-	private String moreInfo;
+	private String					moreInfo;
 
 	@Mandatory
+	@Valid
 	@Column
-	private boolean draftMode;
+	private Boolean					draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
 	@Transient
 	@Autowired
-	private AuditReportRepository repository;
+	private AuditReportRepository	repository;
 
-	@Transient
-	public Double getMonthsActive() {
-		Double result;
+	//	@Transient
+	//	public Double monthsActive() {
+	//		Date fecha = this.startMoment;
+	//
+	//	}
 
-		result = this.repository.computeMonthsActive(this.getId());
-
-		return result == null ? 0.0 : result;
-	}
 
 	@Transient
 	public Integer getHours() {
@@ -97,6 +93,7 @@ public class AuditReport extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
+
 	@Mandatory
 	@Valid
 	@ManyToOne
@@ -104,6 +101,6 @@ public class AuditReport extends AbstractEntity {
 
 	@Valid
 	@OneToMany(mappedBy = "report", fetch = FetchType.LAZY)
-	private List<AuditSection> sections;
+	private List<AuditSection>	sections;
 
 }

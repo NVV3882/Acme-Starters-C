@@ -1,16 +1,14 @@
+
 package acme.entities.audit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,24 +24,24 @@ public class AuditSection extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString
+	//@ValidHeader
 	@Column
-	private String name;
+	private String				name;
 
 	@Mandatory
-	@ValidString
+	//@ValidText
 	@Column
-	private String notes;
+	private String				notes;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 1)
 	@Column
-	private Integer hours;
+	private Integer				hours;
 
 	@Mandatory
-	@Enumerated(EnumType.STRING)
+	@Valid
 	@Column
-	private SectionKind kind;
+	private SectionKind			kind;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -52,6 +50,6 @@ public class AuditSection extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private AuditReport	report;
+	private AuditReport			report;
 
 }
