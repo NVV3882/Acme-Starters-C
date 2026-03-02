@@ -75,17 +75,19 @@ public class Strategy extends AbstractEntity {
 	@Autowired
 	private StrategyRepository	repository;
 
-
-	@Transient
-	public Double monthsActive() {
-		return 0.0;
-
-	}
-
-	@Transient
-	public Double getExpectedPercentaje() {
-		Integer result = this.repository.getExpectedPercentaje();
-		return result;
-	}
+	/*
+	 * @Transient
+	 * public Double monthsActive() {
+	 * return 0.0;
+	 * 
+	 * }
+	 * 
+	 * @Transient
+	 * public Double getExpectedPercentaje() {
+	 * Integer result = this.repository.getExpectedPercentaje();
+	 * return result;
+	 * }
+	 * 
+	 */
 
 }
