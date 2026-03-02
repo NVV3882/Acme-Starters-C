@@ -14,7 +14,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Money;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
@@ -72,6 +71,7 @@ public class Invention extends AbstractEntity {
 
 	//Atributos derivados
 
+	@Transient
 	@Autowired
 	InventionRepository			inventionRepository;
 
@@ -85,19 +85,20 @@ public class Invention extends AbstractEntity {
 		return 0.0;
 
 	}
-	@Transient
-	public Money cost() {
-		Money res = null;
-		Double dinero = this.inventionRepository.sumCostOfThePartsOfAInventionByInventionId(this.getId());
-		if (dinero == null)
-			res.setAmount(0.0);
-		else
-			res.setAmount(dinero);
-
-		res.setCurrency("EUR");
-
-		return res;
-	}
+	//	
+	//	@Transient
+	//	public Money cost() {
+	//		Money res = null;
+	//		Double dinero = this.inventionRepository.sumCostOfThePartsOfAInventionByInventionId(this.getId());
+	//		if (dinero == null)
+	//			res.setAmount(0.0);
+	//		else
+	//			res.setAmount(dinero);
+	//
+	//		res.setCurrency("EUR");
+	//
+	//		return res;
+	//	}
 
 
 	@Mandatory
