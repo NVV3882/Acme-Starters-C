@@ -20,12 +20,12 @@ public class Fundraiser extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidText
+	@ValidHeader
 	@Column
 	private String				bank;
 
 	@Mandatory
-	@ValidHeader
+	@ValidText
 	@Column
 	private String				statement;
 

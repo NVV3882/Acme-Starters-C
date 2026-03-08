@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StrategyRepository extends CrudRepository<Strategy, Integer> {
 
-	@Query("SELECT SUM(t.expectedPorcentaje) FROM Tactic t")
+	@Query("SELECT SUM(t.expectedPercentaje) FROM Tactic t")
 	Double getExpectedPercentaje();
 }

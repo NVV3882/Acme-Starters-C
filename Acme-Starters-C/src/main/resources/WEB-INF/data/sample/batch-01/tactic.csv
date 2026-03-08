@@ -1,4 +1,4 @@
-key,name,notes,money,kind,key:strategy
+key,name,notes,expectedPercentaje,kind,key:strategy
 # base entity
 tactic-01,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",50.00,SUBTLE,strategy-01
 # name
@@ -24,8 +24,8 @@ tactic-20,"Lorem ipsum dolor sit amet, consectetu","<marquee>Hacked</marquee>",5
 tactic-21,"Lorem ipsum dolor sit amet, consectetu","<script>alert(‘Hacked!’);</script>",50.00,SUBTLE,strategy-01
 tactic-22,"Lorem ipsum dolor sit amet, consectetu","' or 'A' = 'A ",50.00,SUBTLE,strategy-01
 # expected percentage
-tactic-23,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 1.00,SUBTLE,strategy-01
-tactic-24,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 100.00,SUBTLE,strategy-01
+tactic-23,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",1.00,SUBTLE,strategy-01
+tactic-24,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",100.00,SUBTLE,strategy-01
 # kind
 tactic-27,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",50.00,AGGRESSIVE,strategy-01
 tactic-28,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",50.00,TENDER,strategy-01
