@@ -12,11 +12,12 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
 import acme.constraints.ValidHeader;
@@ -28,6 +29,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+
 public class Campaign extends AbstractEntity {
 
 	/**
@@ -65,9 +67,11 @@ public class Campaign extends AbstractEntity {
 	@Column
 	private Boolean				draftMode;
 
-	@Mandatory
-	@ManyToOne(optional = false)
-	private Spokesperson		spokesperson;
+	// Derivated atributes
+
+	@Transient
+	@Autowired
+	private CampaignRepository	repository;
 
 
 	@Transient
@@ -78,10 +82,20 @@ public class Campaign extends AbstractEntity {
 		return 0.0;
 	}
 
+	@Transient
+	public double getEffort() {
+		double result = 0.0;
+		Double suma = this.repository.getEffortById(this.getId());
+		if (suma == null)
+			result = 0.0;
+		return result;
+	}
+
+	//Relationships
+
 
 	@Mandatory
-	@ValidNumber(min = 0.00, max = 10000.00)
-	@Column
-	private double effort;
+	@ManyToOne(optional = false)
+	private Spokesperson spokesperson;
 
 }

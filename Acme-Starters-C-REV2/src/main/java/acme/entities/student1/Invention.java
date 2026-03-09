@@ -51,6 +51,38 @@ public class Invention extends AbstractEntity {
 	@Column
 	private Boolean				draftMode;
 
+<<<<<<< Updated upstream:Acme-Starters-C-REV2/src/main/java/acme/entities/student1/Invention.java
+=======
+	/*
+	 * @Mandatory
+	 * 
+	 * @Valid
+	 * 
+	 * @Transient
+	 * public Double monthsActive() {
+	 * 
+	 * }
+	 */
+
+	/*
+	 * @Mandatory
+	 * 
+	 * @ValidMoney(min = 0.1)
+	 * 
+	 * @Transient
+	 * public Money cost() {
+	 * 
+	 * CampaignRepository inventionRepo;
+	 * Money dinero;
+	 * dinero.setAmount(inventionRepo.sumCostOfThePartsOfAInvention(this.getId());
+	 * dinero.setCurrency(this.description);
+	 * 
+	 * 
+	 * }
+	 * 
+	 */
+
+>>>>>>> Stashed changes:Acme-Starters-C-REV2/src/main/java/acme/entities/invention/Invention.java
 	@Mandatory
 	@ManyToOne
 	private Inventor			inventor;
