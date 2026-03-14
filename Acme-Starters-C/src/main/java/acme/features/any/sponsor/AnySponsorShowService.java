@@ -1,33 +1,31 @@
 
-package acme.features.any.donation;
-
-import java.util.Collection;
+package acme.features.any.sponsor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.components.principals.Any;
 import acme.client.services.AbstractService;
-import acme.entities.sponsorships.Donation;
+import acme.realms.Sponsor;
 
 @Service
-public class AnyDonationListService extends AbstractService<Any, Donation> {
+public class AnySponsorShowService extends AbstractService<Any, Sponsor> {
 
 	@Autowired
-	AnyDonationRepository	repositorio;
+	AnySponsorRepository	repositorio;
 
-	Collection<Donation>	donaciones;
+	Sponsor					patrocinador;
 
 
 	@Override
 	public void load() {
 		int sponsorshipId = super.getRequest().getData("sponsorshipId", int.class);
-		this.donaciones = this.repositorio.listAllDonationsBySponsorshipId(sponsorshipId);
+		this.patrocinador = this.repositorio.findSponsorBySponsorshipId(sponsorshipId);
 	}
 	@Override
 	public void authorise() {
-		Boolean res;
 		int sponsorshipId = super.getRequest().getData("sponsorshipId", int.class);
+		Boolean res;
 		if (this.repositorio.sponsorshipIsPublished(sponsorshipId).equals(true))
 			res = true;
 		else
@@ -37,6 +35,6 @@ public class AnyDonationListService extends AbstractService<Any, Donation> {
 
 	@Override
 	public void unbind() {
-		super.unbindObjects(this.donaciones, "name", "notes", "money", "kind");
+		super.unbindObject(this.patrocinador, "address", "im", "gold");
 	}
 }
