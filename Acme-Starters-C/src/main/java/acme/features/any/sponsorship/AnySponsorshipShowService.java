@@ -25,6 +25,13 @@ public class AnySponsorshipShowService extends AbstractService<Any, Sponsorship>
 	}
 	@Override
 	public void authorise() {
+		//		int id;
+		//		id = super.getRequest().getData("id", int.class);
+		//		Boolean res;
+		//		if (this.repositorio.SponsorshipIsPublished(id).equals(true))
+		//			res = true;
+		//		else
+		//			res = false;
 		super.setAuthorised(true);
 	}
 
